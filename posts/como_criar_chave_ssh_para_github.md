@@ -8,7 +8,7 @@ Resumidamente openSSH é uma ferramenta que auxilia em conexões remotas utiliza
 ## Linux:
 Para conferir se já está disponível no seu computador utilize o comando:
 ```sh
-if [[ /usr/bin/ssh-agent &> /dev/null ]]; then; echo "ta tudo certo"
+if command -v /usr/bin/ssh-agent &> /dev/null; then echo "ta tudo certo"; fi
 ```
 Se de fato apareceu `ta tudo certo` no teu terminal significa que ta tudo certo e pode pular essa parte.
 
