@@ -200,6 +200,8 @@ Vamos novamente tentar conectar no server do GitHub para ver se nossa máquina e
 Agora está funcionando!! 
 Caso continue dando o erro de *acesso negado*, repita as etapas de adicionar a chave que funcionará.
 
+---
+
 E a partir de agora toda vez que voce for clonar algum repositório, esqueça o modo HTTP e use apenas SSH e nunca mais terá que inserir seu login e senha quando for trabalhar com algum outro projeto 
 
 <img src="https://github.com/forjadev/Content-Creations/assets/53125029/06171466-8473-4a43-881d-13ffac73e60c" alt="img">
