@@ -5,9 +5,6 @@
 - ![O que é](#O%20que%20é)
 	- ![Pré-requisitos](#Pré-requisitos)
 - ![Instalando OpenSSH no seu computador](#Instalando%20OpenSSH%20no%20seu%20computador)
-	- ![MacOS](#Instalando%20OpenSSH%20no%20seu%20computador#MacOS)
-	- ![Linux](#Instalando%20OpenSSH%20no%20seu%20computador#Linux)
-	- ![Windows](#Instalando%20OpenSSH%20no%20seu%20computador#Linux)
 - ![Criando a chave SSH](#Criando%20a%20chave%20SSH)
 - ![Adicionando no GitHub](#Adicionando%20no%20GitHub)
 - ![Registrando no dispositivo](#Registrando%20no%20dispositivo)
@@ -22,14 +19,20 @@ OpenSSH é uma ferramenta que auxilia em conexões remotas utilizando o protocol
 - **Git**
  
 ## Instalando OpenSSH no seu computador
-> Caso ja openssh instalado em seu pc, basta pular para [[#Configuração]]
+> Caso ja openssh instalado em seu pc, pode pular para [Criando a Chave SSH](#Criando%20a%20chave%20SSH)
 
-### Mac:
+<details>
+	<summary><strong>
+	MacOS:
+	</strong></summary>
 ```sh
 $ brew install git 
 ```
-
-### Linux:
+</details>
+<details>
+	<summary><strong>
+	Linux:
+	</strong></summary>
 Para conferir se já está disponível no seu computador utilize o comando:
 ```sh
 $ if command -v /usr/bin/ssh-agent &> /dev/null; then echo "ta tudo certo"; fi
@@ -53,7 +56,12 @@ $ sudo zypper install openssh
 $ sudo pacman -S openssh
 ```
 
-### Windows:
+</details>
+<details>
+	<summary><strong>
+	Windows:
+	</strong></summary>
+	
 Uma das mais maneiras mais fáceis para conseguir gerenciar sua chave SSH no Windows é utilizando o **Git Bash**
 
 Caso não tenha instalado basta baixar direto do site do Git acessando: https://git-scm.com/download/win  
@@ -65,6 +73,8 @@ Caso não tenha instalado basta baixar direto do site do Git acessando: https://
 - Durante a instalação selecione a opção padrão _Use bundled OpenSSH_
     
     ![Janela de instalação do Git selecionado na opção de Use bundled OpenSSH](https://github.com/forjadev/blog/assets/53125029/3fb28b33-24b8-48f3-b8ab-c7cac2c07dd5)
+  
+</details>
 
 ## Criando a chave SSH
 Daqui em diante o processo será o mesmo tanto para Linux quanto para Windows  
