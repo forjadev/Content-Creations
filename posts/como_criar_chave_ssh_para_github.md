@@ -71,12 +71,32 @@ Daqui em diante o processo será o mesmo tanto para Linux quanto para Windows
 OBS: **Usuários de Windows** devem prosseguir utilizando __Git Bash__  
 
 Para gerar uma nova chave usaremos o `ssh-keygen` e passaremos alguns parametros para reforçar a segurança como:  
-
-`-f` :: indicando aonde queremos que seja armazenada a chave e qual nome ela terá. No final será gerado dois arquivos, sendo um privado e um publico(que terá a extensão `.pub`).  
-`-t` :: qual algoritmo de encriptografia vamos usar, o mais seguro atualmente é ed25519, sobre as outras chaves e comparações voce encontra [clicando aqui](https://goteleport.com/blog/comparing-ssh-keys/) para saber mais  
-`-b` :: Tamanho em bits (quanto maior, mais seguro). Por precaução utilizaremos a maior quantidade disponivel.  
-`-E` :: Qual o tipo de Hash será armazenada essa chave, o mais seguro disponível é sha512 e será esse que iremos usar
-`-C` :: Por fim o comentário que será o identificador da chave que nesse caso será o *mesmo email usado no GitHub* e que **não seja o email privado**. Caso seu email primário seja privado, o GitHub gera para todo usuário um email para voce, basta [clicar aqui](https://github.com/settings/emails) e copiar o email que fica em baixo da opção **Keep my email addresses private**(o formato padrão é: `541234+<usuario>@users.noreply.github.com)`  
+<table>
+  <tr>
+    <th>Parâmetro</th>
+    <th>Descrição</th>
+  </tr>
+  <tr>
+    <td><code>-f</code></td>
+    <td>Indicando aonde queremos que seja armazenada a chave e qual nome ela terá. No final será gerado dois arquivos, sendo um privado e um público (que terá a extensão <code>.pub</code>).</td>
+  </tr>
+  <tr>
+    <td><code>-t</code></td>
+    <td>Qual algoritmo de encriptografia vamos usar, o mais seguro atualmente é ed25519, sobre as outras chaves e comparações você encontra <a href="https://goteleport.com/blog/comparing-ssh-keys/">clicando aqui</a> para saber mais.</td>
+  </tr>
+  <tr>
+    <td><code>-b</code></td>
+    <td>Tamanho em bits (quanto maior, mais seguro). Por precaução utilizaremos a maior quantidade disponível.</td>
+  </tr>
+  <tr>
+    <td><code>-E</code></td>
+    <td>Qual o tipo de Hash será armazenada essa chave, o mais seguro disponível é sha512 e será esse que iremos usar.</td>
+  </tr>
+  <tr>
+    <td><code>-C</code></td>
+    <td>Por fim o comentário que será o identificador da chave, que neste caso será o <em>mesmo email usado no GitHub</em> e que <strong>não seja o email privado</strong>. Caso seu email primário seja privado, o GitHub gera para todo usuário um email para você, basta <a href="https://github.com/settings/emails">clicar aqui</a> e copiar o email que fica em baixo da opção <strong>Keep my email addresses private</strong> (o formato padrão é: <code>541234+<usuario>@users.noreply.github.com</code>).</td>
+  </tr>
+</table>
 
 Com isso esclarecido, basta inserir todo o comando abaixo para prosseguirmos.
 ```sh
