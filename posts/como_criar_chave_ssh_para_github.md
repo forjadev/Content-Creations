@@ -68,11 +68,11 @@ Caso não tenha instalado basta baixar direto do site do Git acessando: https://
 
 - Clique no primeiro link para baixar
     
-    ![Página de Download do Git](https://github.com/forjadev/blog/assets/53125029/89beff5c-020f-4e30-8175-7cc26fe8cfb3)
+    <img alt="Página de Download do Git" src="https://github.com/forjadev/blog/assets/53125029/89beff5c-020f-4e30-8175-7cc26fe8cfb3">
 
 - Durante a instalação selecione a opção padrão _Use bundled OpenSSH_
     
-    ![Janela de instalação do Git selecionado na opção de Use bundled OpenSSH](https://github.com/forjadev/blog/assets/53125029/3fb28b33-24b8-48f3-b8ab-c7cac2c07dd5)
+    <img alt="Janela de instalação do Git selecionado na opção de Use bundled OpenSSH" src="https://github.com/forjadev/blog/assets/53125029/3fb28b33-24b8-48f3-b8ab-c7cac2c07dd5">
   
 </details>
 
@@ -130,17 +130,17 @@ cat ~/.ssh/gitKey.pub
 ```
 
 e ela tem que começar com: `ssh-ed25519 ` e terminar com o email utilizado no Git.  
-![image](https://github.com/forjadev/blog/assets/53125029/be38c227-65a4-4daa-8d83-f4966cfa019d)
+<img src="https://github.com/forjadev/blog/assets/53125029/be38c227-65a4-4daa-8d83-f4966cfa019d">
 
 ## Adicionando no GitHub
 
 Após copiar nossa chave pública do SSH, abra a página de chaves no site do Github ([ou clique aqui](https://github.com/settings/keys)) e aperte o botão **New SSH Key**
 
-![image](https://github.com/forjadev/blog/assets/53125029/53485dad-1cd7-43f2-8d73-cdaf87e06837)
+<img src="https://github.com/forjadev/blog/assets/53125029/53485dad-1cd7-43f2-8d73-cdaf87e06837">
 
 E basta dar um nome que seja fácil para voce identificar de qual computador está configurado, em **Key type** usar _Authentication key_ e por fim inserir a _chave pública_ inteira no campo **Key**
 
-![image](https://github.com/forjadev/blog/assets/53125029/7e2e6a53-f53e-4cfc-bbbd-ea93dcb58725)
+<img src="https://github.com/forjadev/blog/assets/53125029/7e2e6a53-f53e-4cfc-bbbd-ea93dcb58725">
 
 ## Registrando no dispositivo
 
@@ -151,7 +151,7 @@ Quanto ao GitHub já está tudo certinho, **PORÉMMM...* ainda temos que registr
 Por padrão as chaves geradas não são registradas pois não são em todos os casos que SSH é utilizado apenas localmente, por ser um arquivo ela pode ser exportada para outro sistema e só lá ser adicionada, por conta disso é de nossa responsabilidade fazermos esse registro
 Um meio de verificar se a chave SSH está funcionado é mandando uma requisição para o GitHub, vamos testar:
 
-![image](https://github.com/forjadev/blog/assets/53125029/fcf574a0-bc04-48f8-89cd-ac9b05caf1ec)
+<img src="https://github.com/forjadev/blog/assets/53125029/fcf574a0-bc04-48f8-89cd-ac9b05caf1ec" alt="img">
 
 Vish...  `Permission Denied` não é nada bom... 
 Para resolver isso temos que invocar o `ssh-agent` e `ssh-add` que vieram junto com a instalação do openssh que fizemos no começo do post.  
@@ -193,14 +193,14 @@ Identity added: /Users/ManoelGomes/.ssh/gitKey (<your git email>)
 E chegou o momento final ~~
 Vamos novamente tentar conectar no server do GitHub para ver se nossa máquina está ou não autenticada
 
-![image](https://github.com/forjadev/blog/assets/53125029/8a269ab7-3e64-48bc-b47c-650fa3acae5e)
+<img src="https://github.com/forjadev/blog/assets/53125029/8a269ab7-3e64-48bc-b47c-650fa3acae5e" alt="img">
 
 Agora está funcionando!! 
 Caso continue dando o erro de *acesso negado*, repita as etapas de adicionar a chave que funcionará.
 
 E a partir de agora toda vez que voce for clonar algum repositório, esqueça o modo HTTP e use apenas SSH e nunca mais terá que inserir seu login e senha quando for trabalhar com algum outro projeto 
 
-![image](https://github.com/forjadev/blog/assets/53125029/dc2d8380-84bf-43c5-a67b-b63de83d1aef)
+<img src="https://github.com/forjadev/blog/assets/53125029/dc2d8380-84bf-43c5-a67b-b63de83d1aef" alt="img">
 
 E é isso! também não se esqueça de configurar a chave GPG para assinar cada commit que você fez!
 E qualquer dúvida é só mandar aqui nos comentarios ;)
