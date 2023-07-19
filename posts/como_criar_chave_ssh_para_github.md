@@ -202,7 +202,7 @@ Caso continue dando o erro de *acesso negado*, repita as etapas de adicionar a c
 
 E a partir de agora toda vez que voce for clonar algum repositório, esqueça o modo HTTP e use apenas SSH e nunca mais terá que inserir seu login e senha quando for trabalhar com algum outro projeto 
 
-<img src="https://github.com/forjadev/blog/assets/53125029/dc2d8380-84bf-43c5-a67b-b63de83d1aef" alt="img">
+<img src="https://github.com/forjadev/Content-Creations/assets/53125029/06171466-8473-4a43-881d-13ffac73e60c" alt="img">
 
 E é isso! também não se esqueça de configurar a chave GPG para assinar cada commit que você fez!
 E qualquer dúvida é só mandar aqui nos comentarios ;)
