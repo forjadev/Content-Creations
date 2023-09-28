@@ -2,12 +2,12 @@
 > Autor: [Junio Santos](https://github.com/imnotjuniodev)
 
 #### Índice
-- ![O que é](#O%20que%20é)
-	- ![Pré-requisitos](#Pré-requisitos)
-- ![Instalando OpenSSH no seu computador](#Instalando%20OpenSSH%20no%20seu%20computador)
-- ![Criando a chave SSH](#Criando%20a%20chave%20SSH)
-- ![Adicionando no GitHub](#Adicionando%20no%20GitHub)
-- ![Registrando no dispositivo](#Registrando%20no%20dispositivo)
+- [O que é](#O%20que%20é)
+	- [Pré-requisitos](#Pré-requisitos)
+- [Instalando OpenSSH no seu computador](#Instalando%20OpenSSH%20no%20seu%20computador)
+- [Criando a chave SSH](#Criando%20a%20chave%20SSH)
+- [Adicionando no GitHub](#Adicionando%20no%20GitHub)
+- [Registrando no dispositivo](#Registrando%20no%20dispositivo)
 
 ## O que é
 OpenSSH é uma ferramenta que auxilia em conexões remotas utilizando o protocolo SSH, servindo como um meio de autenticação prático onde não é necessário senhas e usernames. Aplique esse conceito ao Github (ou GitLab) e voce poderá clonar seus projetos e eles automaticamente autenticar com a sua conta, podendo manter o repositório sincronizado com maior segurança e sem necessidade de senha.
@@ -19,18 +19,18 @@ OpenSSH é uma ferramenta que auxilia em conexões remotas utilizando o protocol
 - **Git**
  
 ## Instalando OpenSSH no seu computador
-> Caso ja openssh instalado em seu pc, pode pular para [Criando a Chave SSH](#Criando%20a%20chave%20SSH)
+> Caso ja openssh instalado em seu pc, pode pular para [Criando a Chave 
+SSH](#Criando%20a%20chave%20SSH)
 
-<details>
-	<summary><strong>
-	MacOS:
-	</strong></summary>
-	<code>$ brew install git</code>
-</details>
-<details>
-	<summary><strong>
-	Linux:
-	</strong></summary>
+{% collapsible MacOS %}  
+MacOS já vem com o git instalando por padrão, e openssh já vem embutido sem a necessidade de fazer qlqer download extra.  
+Caso queira confirmar que realmente está tudo certo basta executar:
+```sh
+brew install git
+```
+{% endcollapsible %}
+
+{% collapsible Linux %}  
 Para conferir se já está disponível no seu computador utilize o comando:
 ```sh
 if command -v /usr/bin/ssh-agent &> /dev/null; then echo "ta tudo certo"; fi
@@ -50,13 +50,9 @@ sudo zypper install openssh
 # -- arch
 sudo pacman -S openssh
 ```
+{% endcollapsible %}
 
-</details>
-<details>
-	<summary><strong>
-	Windows:
-	</strong></summary>
-	
+{% collapsible Windows %}  
 Uma das mais maneiras mais fáceis para conseguir gerenciar sua chave SSH no Windows é utilizando o **Git Bash**
 
 Caso não tenha instalado basta baixar direto do site do Git acessando: https://git-scm.com/download/win  
@@ -65,42 +61,22 @@ Caso não tenha instalado basta baixar direto do site do Git acessando: https://
     ![image](https://imgur.com/2rYMvBm.png)
 
 - Durante a instalação selecione a opção padrão _**Use bundled OpenSSH**_
-    
- <!--   <img alt="Janela de instalação do Git selecionado na opção de Use bundled OpenSSH" src="https://github.com/forjadev/Content-Creations/assets/53125029/3fb28b33-24b8-48f3-b8ab-c7cac2c07dd5"> -->
-  
-</details>
+{% endcollapsible %}
 
 ## Criando a chave SSH
 Daqui em diante o processo será o mesmo tanto para Linux quanto para Windows  
-OBS: **Usuários de Windows** devem prosseguir utilizando __Git Bash__  
+OBS: **Usuários de Windows** devem prosseguir utilizando **Git Bash**  
 
 Para gerar uma nova chave usaremos o `ssh-keygen` e passaremos alguns parametros para reforçar a segurança como:  
-<table>
-  <tr>
-    <th>Parâmetro</th>
-    <th>Descrição</th>
-  </tr>
-  <tr>
-    <td><code>-f</code></td>
-    <td>Indicando aonde queremos que seja armazenada a chave e qual nome ela terá. No final será gerado dois arquivos, sendo um privado e um público (que terá a extensão <code>.pub</code>).</td>
-  </tr>
-  <tr>
-    <td><code>-t</code></td>
-    <td>Qual algoritmo de encriptografia vamos usar, o mais seguro atualmente é ed25519, sobre as outras chaves e comparações você encontra <a href="https://goteleport.com/blog/comparing-ssh-keys/">clicando aqui</a> para saber mais.</td>
-  </tr>
-  <tr>
-    <td><code>-b</code></td>
-    <td>Tamanho em bits (quanto maior, mais seguro). Por precaução utilizaremos a maior quantidade disponível.</td>
-  </tr>
-  <tr>
-    <td><code>-E</code></td>
-    <td>Qual o tipo de Hash será armazenada essa chave, o mais seguro disponível é sha512 e será esse que iremos usar.</td>
-  </tr>
-  <tr>
-    <td><code>-C</code></td>
-    <td>Por fim o comentário que será o identificador da chave, que neste caso será o <em>mesmo email usado no GitHub</em> e que <strong>não seja o email privado</strong>. Caso seu email primário seja privado, o GitHub gera para todo usuário um email para você, basta <a href="https://github.com/settings/emails">clicar aqui</a> e copiar o email que fica em baixo da opção <strong>Keep my email addresses private</strong> (o formato padrão é: <code>541234+<usuario>@users.noreply.github.com</code>).</td>
-  </tr>
-</table>
+
+| Parâmetro | Descrição |
+| --------- | --------- |
+| -f | Indica onde a chave será armazenada e qual nome ela terá. Gera dois arquivos, um privado e um público (com extensão .pub). |
+| -t | Escolhe o algoritmo de criptografia a ser usado. O mais seguro atualmente é ed25519. Mais informações sobre outros algoritmos e comparações podem ser encontradas [aqui](link). |
+| -b | Define o tamanho em bits da chave. Quanto maior, mais seguro. Por precaução, utilizaremos o maior disponível. |
+| -E | Especifica o tipo de hash no qual a chave será armazenada. O mais seguro disponível é sha512, e é isso que usaremos. |
+| -C | Define o comentário que será o identificador da chave. Neste caso, será o mesmo e-mail usado no GitHub, desde que não seja o e-mail privado. Se o seu e-mail principal for privado, o GitHub gera um e-mail para você. Basta [clicar aqui](link) e copiar o e-mail que fica abaixo da opção "Keep my email addresses private" (deve ser algo como: 541234+<usuario>@users.noreply.github.com). |
+
 
 Com isso esclarecido, basta inserir todo o comando abaixo para prosseguirmos.
 ```sh
@@ -126,7 +102,7 @@ cat ~/.ssh/gitKey.pub
 
 esse arquivo terá que começar com: `ssh-ed25519` e terminar com o email utilizado no Git.
 
-<img src="https://imgur.com/vyrDLuj.png">
+![img](https://imgur.com/vyrDLuj.png)
 
 e apenas copie essa linha pois será necessária para a próxima etapa.
 
@@ -134,11 +110,11 @@ e apenas copie essa linha pois será necessária para a próxima etapa.
 
 Após copiar nossa chave pública do SSH, abra a página de chaves no site do Github ([ou clicando aqui](https://github.com/settings/keys)) e aperte o botão **New SSH Key**
 
-<img src="https://imgur.com/BLH6ZHQ.png">
+![img](https://imgur.com/BLH6ZHQ.png)
 
 E basta dar um nome que seja fácil para voce identificar de qual computador está configurado, em **Key type** usar _Authentication key_ e por fim inserir a _chave pública_ inteira no campo **Key**
 
-<img src="https://imgur.com/TrST1xg.png">
+![img](https://imgur.com/TrST1xg.png)
 
 ## Registrando no dispositivo
 
@@ -149,7 +125,7 @@ Quanto ao GitHub já está tudo certinho, **PORÉMMM...* ainda temos que registr
 Por padrão as chaves geradas não são registradas pois não são em todos os casos que SSH é utilizado apenas localmente, por ser um arquivo ela pode ser exportada para outro sistema e só lá ser adicionada, por conta disso é de nossa responsabilidade fazermos esse registro
 Um meio de verificar se a chave SSH está funcionado é mandando uma requisição para o GitHub, vamos testar:
 
-<img src="https://imgur.com/9aRsxIU.png" alt="img">
+![img](https://imgur.com/9aRsxIU.png)
 
 
 Vish...  `Permission Denied` não é nada bom... 
@@ -183,7 +159,7 @@ Identity added: /Users/ManoelGomes/.ssh/gitKey (<your git email>)
 E chegamos ao momento final ~~
 Vamos tentar conectar no server do GitHub para ver se nossa máquina está ou não autenticada:
 
-<img src="https://imgur.com/WuDoYpy.png" alt="img">
+![img](https://imgur.com/WuDoYpy.png)
 
 Agora está funcionando!!
 Caso continue dando o erro de *acesso negado*, repita as etapas de adicionar a chave que funcionará.
@@ -192,7 +168,7 @@ Caso continue dando o erro de *acesso negado*, repita as etapas de adicionar a c
 
 E a partir de agora toda vez que voce for clonar algum repositório, esqueça o modo HTTP e use apenas SSH e nunca mais terá que inserir seu login e senha quando for trabalhar em algum outro projeto 
 
-<img src="https://i.imgur.com/QplPuVK.png" alt="img">
+![img](https://i.imgur.com/QplPuVK.png)
 
 E é isso! também não se esqueça de configurar a chave GPG para assinar cada commit que você fez!
 E qualquer dúvida é só mandar aqui nos comentarios ;)
